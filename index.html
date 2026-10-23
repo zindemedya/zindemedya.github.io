@@ -1,18 +1,151 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Zinde Medya</title><link rel="stylesheet" href="/assets/style.css"></head><body>
-<header><div class="brand">Zinde Medya</div><div class="sub" id="tagline"></div></header>
-<main><div class="lang" id="langs"></div><div class="card"><h1 id="appsTitle"></h1><h2>WeboRemote – Remote for LG TV</h2><p id="appDesc"></p><nav><a href="/weboremote/">WeboRemote</a><a id="privacyLink" href="/weboremote/privacy/"></a><a id="termsLink" href="/weboremote/terms/"></a><a id="supportLink" href="/weboremote/support/"></a></nav></div></main>
-<footer>© 2026 Zinde Medya</footer>
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Zinde Medya</title>
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header>
+  <div class="brand">Zinde Medya</div>
+  <div class="sub" id="tagline"></div>
+</header>
+
+<main>
+  <div class="lang" id="langs"></div>
+
+  <div class="card">
+    <h1 id="appsTitle"></h1>
+
+    <h2>WeboRemote – Remote for LG TV</h2>
+    <p id="appDesc"></p>
+
+    <p class="notice" id="appNotice"></p>
+
+    <nav>
+      <a href="/weboremote/">WeboRemote</a>
+      <a id="privacyLink" href="/weboremote/privacy/"></a>
+      <a id="termsLink" href="/weboremote/terms/"></a>
+      <a id="supportLink" href="/weboremote/support/"></a>
+    </nav>
+  </div>
+</main>
+
+<footer id="siteFooter"></footer>
+
 <script>
-const langs=[['tr','Türkçe'],['en','English'],['de','Deutsch'],['es','Español'],['fr','Français'],['pt-br','Português (Brasil)']];
-const t={
-tr:{tag:'Mobil uygulamalar',apps:'Uygulamalar',desc:'Uyumlu LG webOS TV’ler için yerel ağ üzerinden uzaktan kumanda.',privacy:'Gizlilik',terms:'Koşullar',support:'Destek'},
-en:{tag:'Mobile applications',apps:'Apps',desc:'Local-network remote control for compatible LG webOS TVs.',privacy:'Privacy',terms:'Terms',support:'Support'},
-de:{tag:'Mobile Apps',apps:'Apps',desc:'Fernbedienung für kompatible LG webOS-Fernseher im lokalen Netzwerk.',privacy:'Datenschutz',terms:'Bedingungen',support:'Support'},
-es:{tag:'Aplicaciones móviles',apps:'Aplicaciones',desc:'Control remoto por red local para televisores LG webOS compatibles.',privacy:'Privacidad',terms:'Términos',support:'Soporte'},
-fr:{tag:'Applications mobiles',apps:'Applications',desc:'Télécommande via le réseau local pour les téléviseurs LG webOS compatibles.',privacy:'Confidentialité',terms:'Conditions',support:'Assistance'},
-'pt-br':{tag:'Aplicativos móveis',apps:'Aplicativos',desc:'Controle remoto pela rede local para TVs LG webOS compatíveis.',privacy:'Privacidade',terms:'Termos',support:'Suporte'}
+const languages=[
+  ['tr','Türkçe'],
+  ['en','English'],
+  ['de','Deutsch'],
+  ['es','Español'],
+  ['fr','Français'],
+  ['pt-br','Português (Brasil)']
+];
+
+const text={
+  tr:{
+    tag:'Mobil uygulamalar',
+    apps:'Uygulamalar',
+    desc:'Uyumlu LG webOS TV’leri yerel ağ üzerinden kontrol etmek için hızlı ve sade uzaktan kumanda uygulaması.',
+    notice:'WeboRemote bağımsız bir uygulamadır; LG Electronics ile bağlantılı değildir ve LG tarafından onaylanmamış veya sponsor edilmemiştir.',
+    privacy:'Gizlilik Politikası',
+    terms:'Kullanım Koşulları',
+    support:'Destek',
+    footer:'© 2026 Zinde Medya · Mobil uygulamalar'
+  },
+  en:{
+    tag:'Mobile applications',
+    apps:'Apps',
+    desc:'A fast and simple remote-control app for compatible LG webOS TVs over your local network.',
+    notice:'WeboRemote is an independent application and is not affiliated with, endorsed by, or sponsored by LG Electronics.',
+    privacy:'Privacy Policy',
+    terms:'Terms of Use',
+    support:'Support',
+    footer:'© 2026 Zinde Medya · Mobile applications'
+  },
+  de:{
+    tag:'Mobile Apps',
+    apps:'Apps',
+    desc:'Eine schnelle und einfache Fernbedienungs-App für kompatible LG webOS-Fernseher im lokalen Netzwerk.',
+    notice:'WeboRemote ist eine unabhängige App und steht in keiner Verbindung zu LG Electronics; sie wird von LG weder unterstützt noch gesponsert.',
+    privacy:'Datenschutzerklärung',
+    terms:'Nutzungsbedingungen',
+    support:'Support',
+    footer:'© 2026 Zinde Medya · Mobile Apps'
+  },
+  es:{
+    tag:'Aplicaciones móviles',
+    apps:'Aplicaciones',
+    desc:'Una aplicación de control remoto rápida y sencilla para televisores LG webOS compatibles en tu red local.',
+    notice:'WeboRemote es una aplicación independiente y no está afiliada, respaldada ni patrocinada por LG Electronics.',
+    privacy:'Política de privacidad',
+    terms:'Términos de uso',
+    support:'Soporte',
+    footer:'© 2026 Zinde Medya · Aplicaciones móviles'
+  },
+  fr:{
+    tag:'Applications mobiles',
+    apps:'Applications',
+    desc:'Une application de télécommande rapide et simple pour les téléviseurs LG webOS compatibles sur votre réseau local.',
+    notice:'WeboRemote est une application indépendante et n’est ni affiliée, ni approuvée, ni sponsorisée par LG Electronics.',
+    privacy:'Politique de confidentialité',
+    terms:'Conditions d’utilisation',
+    support:'Assistance',
+    footer:'© 2026 Zinde Medya · Applications mobiles'
+  },
+  'pt-br':{
+    tag:'Aplicativos móveis',
+    apps:'Aplicativos',
+    desc:'Um aplicativo de controle remoto rápido e simples para TVs LG webOS compatíveis na sua rede local.',
+    notice:'WeboRemote é um aplicativo independente e não é afiliado, endossado nem patrocinado pela LG Electronics.',
+    privacy:'Política de Privacidade',
+    terms:'Termos de Uso',
+    support:'Suporte',
+    footer:'© 2026 Zinde Medya · Aplicativos móveis'
+  }
 };
-function pick(){const q=new URLSearchParams(location.search).get('lang');if(t[q])return q;const n=(navigator.language||'en').toLowerCase();if(n.startsWith('tr'))return'tr';if(n.startsWith('de'))return'de';if(n.startsWith('es'))return'es';if(n.startsWith('fr'))return'fr';if(n.startsWith('pt'))return'pt-br';return'en'}
-function show(l){const x=t[l]||t.en;document.documentElement.lang=l==='pt-br'?'pt-BR':l;tagline.textContent=x.tag;appsTitle.textContent=x.apps;appDesc.textContent=x.desc;privacyLink.textContent=x.privacy;termsLink.textContent=x.terms;supportLink.textContent=x.support;document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));history.replaceState(null,'','?lang='+l)}
-langs.innerHTML=langs.map(x=>'<button data-lang="'+x[0]+'">'+x[1]+'</button>').join('');document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>show(b.dataset.lang));show(pick());
-</script></body></html>
+
+function pickLanguage(){
+  const q=new URLSearchParams(location.search).get('lang');
+  if(text[q]) return q;
+
+  const n=(navigator.language||'en').toLowerCase();
+  if(n.startsWith('tr')) return 'tr';
+  if(n.startsWith('de')) return 'de';
+  if(n.startsWith('es')) return 'es';
+  if(n.startsWith('fr')) return 'fr';
+  if(n.startsWith('pt')) return 'pt-br';
+  return 'en';
+}
+
+function showLanguage(lang){
+  const x=text[lang]||text.en;
+  document.documentElement.lang=lang==='pt-br'?'pt-BR':lang;
+
+  document.getElementById('tagline').textContent=x.tag;
+  document.getElementById('appsTitle').textContent=x.apps;
+  document.getElementById('appDesc').textContent=x.desc;
+  document.getElementById('appNotice').textContent=x.notice;
+  document.getElementById('privacyLink').textContent=x.privacy;
+  document.getElementById('termsLink').textContent=x.terms;
+  document.getElementById('supportLink').textContent=x.support;
+  document.getElementById('siteFooter').textContent=x.footer;
+
+  document.querySelectorAll('.lang button')
+    .forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
+
+  history.replaceState(null,'','?lang='+lang);
+}
+
+document.getElementById('langs').innerHTML=
+  languages.map(x=>'<button data-lang="'+x[0]+'">'+x[1]+'</button>').join('');
+
+document.querySelectorAll('.lang button')
+  .forEach(b=>b.onclick=()=>showLanguage(b.dataset.lang));
+
+showLanguage(pickLanguage());
+</script>
+</body>
+</html>
