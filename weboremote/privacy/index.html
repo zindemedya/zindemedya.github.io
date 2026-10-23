@@ -73,10 +73,20 @@
 <h2>9. Suas escolhas</h2><p>Quando necessário, as opções de privacidade de anúncios podem ser reabertas em Configurações → Opções de privacidade de anúncios.</p>
 <h2>10. Alterações e contato</h2><p>Esta política pode ser atualizada quando o aplicativo, SDKs ou requisitos legais mudarem. Para suporte ou privacidade, use o contato da Zinde Medya exibido na loja correspondente.</p>
 </div></article></main>
-<footer>© 2026 Zinde Medya · WeboRemote is independent and is not affiliated with or endorsed by LG Electronics.</footer>
+<footer id="siteFooter"></footer>
 <script>
 const langs=[['tr','Türkçe'],['en','English'],['de','Deutsch'],['es','Español'],['fr','Français'],['pt-br','Português (Brasil)']];
 function pick(){const q=new URLSearchParams(location.search).get('lang');if(langs.some(x=>x[0]===q))return q;const n=(navigator.language||'en').toLowerCase();if(n.startsWith('tr'))return'tr';if(n.startsWith('de'))return'de';if(n.startsWith('es'))return'es';if(n.startsWith('fr'))return'fr';if(n.startsWith('pt'))return'pt-br';return'en'}
 function show(l){document.documentElement.lang=l==='pt-br'?'pt-BR':l;document.querySelectorAll('article').forEach(a=>a.hidden=a.dataset.lang!==l);document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));history.replaceState(null,'','?lang='+l)}
+const footers={
+'tr':'© 2026 Zinde Medya · WeboRemote bağımsız bir uygulamadır; LG Electronics ile bağlantılı değildir ve LG tarafından onaylanmamıştır.',
+'en':'© 2026 Zinde Medya · WeboRemote is independent and is not affiliated with or endorsed by LG Electronics.',
+'de':'© 2026 Zinde Medya · WeboRemote ist eine unabhängige App und steht in keiner Verbindung zu LG Electronics; sie wird von LG nicht unterstützt.',
+'es':'© 2026 Zinde Medya · WeboRemote es una aplicación independiente y no está afiliada ni respaldada por LG Electronics.',
+'fr':'© 2026 Zinde Medya · WeboRemote est une application indépendante et n’est ni affiliée ni approuvée par LG Electronics.',
+'pt-br':'© 2026 Zinde Medya · WeboRemote é um aplicativo independente e não é afiliado nem endossado pela LG Electronics.'
+};
+const oldShow=show;
+show=function(l){oldShow(l);document.getElementById('siteFooter').textContent=footers[l]||footers.en}
 document.getElementById('langs').innerHTML=langs.map(x=>'<button data-lang="'+x[0]+'">'+x[1]+'</button>').join('');document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>show(b.dataset.lang));show(pick());
 </script></body></html>
