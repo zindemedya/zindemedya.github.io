@@ -1,1 +1,18 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Zinde Medya Apps</title><link rel="stylesheet" href="/assets/style.css"></head><body><header><div class="brand">Zinde Medya</div><div class="sub">Mobile applications</div></header><main><div class="card"><h1>Apps</h1><h2>WeboRemote – Remote for LG TV</h2><p>Local-network remote control for compatible LG webOS TVs.</p><nav><a href="/weboremote/">WeboRemote</a><a href="/weboremote/privacy/">Privacy</a><a href="/weboremote/terms/">Terms</a><a href="/weboremote/support/">Support</a></nav></div></main><footer>© 2026 Zinde Medya</footer></body></html>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Zinde Medya</title><link rel="stylesheet" href="/assets/style.css"></head><body>
+<header><div class="brand">Zinde Medya</div><div class="sub" id="tagline"></div></header>
+<main><div class="lang" id="langs"></div><div class="card"><h1 id="appsTitle"></h1><h2>WeboRemote – Remote for LG TV</h2><p id="appDesc"></p><nav><a href="/weboremote/">WeboRemote</a><a id="privacyLink" href="/weboremote/privacy/"></a><a id="termsLink" href="/weboremote/terms/"></a><a id="supportLink" href="/weboremote/support/"></a></nav></div></main>
+<footer>© 2026 Zinde Medya</footer>
+<script>
+const langs=[['tr','Türkçe'],['en','English'],['de','Deutsch'],['es','Español'],['fr','Français'],['pt-br','Português (Brasil)']];
+const t={
+tr:{tag:'Mobil uygulamalar',apps:'Uygulamalar',desc:'Uyumlu LG webOS TV’ler için yerel ağ üzerinden uzaktan kumanda.',privacy:'Gizlilik',terms:'Koşullar',support:'Destek'},
+en:{tag:'Mobile applications',apps:'Apps',desc:'Local-network remote control for compatible LG webOS TVs.',privacy:'Privacy',terms:'Terms',support:'Support'},
+de:{tag:'Mobile Apps',apps:'Apps',desc:'Fernbedienung für kompatible LG webOS-Fernseher im lokalen Netzwerk.',privacy:'Datenschutz',terms:'Bedingungen',support:'Support'},
+es:{tag:'Aplicaciones móviles',apps:'Aplicaciones',desc:'Control remoto por red local para televisores LG webOS compatibles.',privacy:'Privacidad',terms:'Términos',support:'Soporte'},
+fr:{tag:'Applications mobiles',apps:'Applications',desc:'Télécommande via le réseau local pour les téléviseurs LG webOS compatibles.',privacy:'Confidentialité',terms:'Conditions',support:'Assistance'},
+'pt-br':{tag:'Aplicativos móveis',apps:'Aplicativos',desc:'Controle remoto pela rede local para TVs LG webOS compatíveis.',privacy:'Privacidade',terms:'Termos',support:'Suporte'}
+};
+function pick(){const q=new URLSearchParams(location.search).get('lang');if(t[q])return q;const n=(navigator.language||'en').toLowerCase();if(n.startsWith('tr'))return'tr';if(n.startsWith('de'))return'de';if(n.startsWith('es'))return'es';if(n.startsWith('fr'))return'fr';if(n.startsWith('pt'))return'pt-br';return'en'}
+function show(l){const x=t[l]||t.en;document.documentElement.lang=l==='pt-br'?'pt-BR':l;tagline.textContent=x.tag;appsTitle.textContent=x.apps;appDesc.textContent=x.desc;privacyLink.textContent=x.privacy;termsLink.textContent=x.terms;supportLink.textContent=x.support;document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));history.replaceState(null,'','?lang='+l)}
+langs.innerHTML=langs.map(x=>'<button data-lang="'+x[0]+'">'+x[1]+'</button>').join('');document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>show(b.dataset.lang));show(pick());
+</script></body></html>
