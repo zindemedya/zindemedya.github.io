@@ -42,6 +42,18 @@
       <a href="/tizoremote/support/">Support</a>
     </nav>
   </div>
+
+  <div class="card">
+    <h2>RokoRemote – Remote for Roku TV</h2>
+    <p id="rokoDesc"></p>
+    <p id="rokoNotice" class="notice"></p>
+    <nav>
+      <a href="/rokoremote/">RokoRemote</a>
+      <a id="rokoPrivacy" href="/rokoremote/privacy/"></a>
+      <a id="rokoTerms" href="/rokoremote/terms/"></a>
+      <a id="rokoSupport" href="/rokoremote/support/"></a>
+    </nav>
+  </div>
 </main>
 
 <footer id="siteFooter"></footer>
@@ -119,6 +131,33 @@ const text={
   }
 };
 
+const rokoText={
+  "tr": {
+    "desc": "Uyumlu Roku cihazlarını aynı yerel ağ üzerinden kontrol etmeye yönelik bağımsız kumanda uygulaması.",
+    "notice": "RokoRemote bağımsızdır; Roku, Inc. ile bağlantılı değildir ve Roku tarafından onaylanmamış veya desteklenmemiştir."
+  },
+  "en": {
+    "desc": "An independent remote-control app for compatible Roku devices on your local network.",
+    "notice": "RokoRemote is independent and is not affiliated with, endorsed by, or sponsored by Roku, Inc."
+  },
+  "de": {
+    "desc": "Eine unabhängige Fernbedienungs-App für kompatible Roku-Geräte im lokalen Netzwerk.",
+    "notice": "RokoRemote ist unabhängig und steht in keiner Verbindung zu Roku, Inc.; die App wird von Roku weder genehmigt noch unterstützt."
+  },
+  "es": {
+    "desc": "Una aplicación independiente para controlar dispositivos Roku compatibles en tu red local.",
+    "notice": "RokoRemote es independiente y no está afiliada, aprobada ni patrocinada por Roku, Inc."
+  },
+  "fr": {
+    "desc": "Une application de télécommande indépendante pour les appareils Roku compatibles sur votre réseau local.",
+    "notice": "RokoRemote est indépendante et n’est ni affiliée, ni approuvée, ni sponsorisée par Roku, Inc."
+  },
+  "pt-br": {
+    "desc": "Um aplicativo independente para controlar dispositivos Roku compatíveis na sua rede local.",
+    "notice": "RokoRemote é independente e não é afiliado, aprovado ou patrocinado pela Roku, Inc."
+  }
+};
+
 function pickLanguage(){
   const q=new URLSearchParams(location.search).get('lang');
   if(text[q]) return q;
@@ -144,6 +183,11 @@ function showLanguage(lang){
   document.getElementById('termsLink').textContent=x.terms;
   document.getElementById('supportLink').textContent=x.support;
   document.getElementById('siteFooter').textContent=x.footer;
+  document.getElementById('rokoDesc').textContent=(rokoText[lang]||rokoText.en).desc;
+  document.getElementById('rokoNotice').textContent=(rokoText[lang]||rokoText.en).notice;
+  document.getElementById('rokoPrivacy').textContent=x.privacy;
+  document.getElementById('rokoTerms').textContent=x.terms;
+  document.getElementById('rokoSupport').textContent=x.support;
 
   document.querySelectorAll('.lang button')
     .forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
